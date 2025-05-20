@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="https://fonts.googleapis.com/css?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>All Websites</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="icon" type="image/png" href="Logo.png" />
+</head>
+<body>
+
+  <header>
+    <h1>All Websites</h1>
+    <p>Preview and visit my projects</p>
+  </header>
+
+  <section class="projects">
+    <div class="project">
+      <video src="Copaciu Video.mp4" autoplay loop muted playsinline></video>
+      <h2>Project Adrian Copaciu</h2>
+      <a href="https://www.bucatarialuiadriancopaciu.com/" target="_blank" class="visit-btn">Visit Website</a>
+    </div>
+    <div class="project">
+      <video src="Biserica Video.mp4" autoplay loop muted playsinline></video>
+      <h2>Project Romanian Church</h2>
+      <a href="https://bisericaortodoxahouston.com/" target="_blank" class="visit-btn">Visit Website</a>
+    </div>
+    <div class="project">
+      <video src="Bella Video.mp4" autoplay loop muted playsinline></video>
+      <h2>Project Dentistry Story</h2>
+      <a href="https://example3.com" target="_blank" class="visit-btn">Visit Website</a>
+    </div>
+  </section>
+
+  <a href="index.html" class="view-all-btn">Back to Home</a>
+
+  <footer>
+    &copy; 2025 MainPageWebsites. All rights reserved.
+  </footer>
+  <script>
+    // Scroll lift effect for .project elements
+    document.addEventListener('DOMContentLoaded', function() {
+      const projects = document.querySelectorAll('.project');
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('lifted');
+          } else {
+            entry.target.classList.remove('lifted');
+          }
+        });
+      }, { threshold: 0.15 });
+      projects.forEach(project => {
+        observer.observe(project);
+      });
+    });
+  </script>
+</body>
+</html>
