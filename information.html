@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="https://fonts.googleapis.com/css?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About Me</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="icon" type="image/png" href="Logo.png" />
+</head>
+<body>
+  <div id="preloader">
+    <img src="Logo.png" alt="Loading..." />
+  </div>
+  <!-- ...existing code... -->
+    <header>
+        <h1>About Me</h1>
+        <p>Learn more about my web design services and what I offer.</p>
+    </header>
+
+    <section class="projects info-projects">
+        <div class="project">
+            <h2>100% Custom</h2>
+            <p>
+                I create websites tailored to your needs, ensuring a unique and personalized experience. Each project is designed from scratch, reflecting your brand's identity.
+            </p>
+        </div>
+        <div class="project">
+            <h2>Can Update</h2>
+            <p>
+                I provide content management, allowing updates to your website to keep it fresh and relevant. This can provide a dynamic experience for your visitors. 
+            </p>
+        </div>
+        <div class="project">
+            <h2>Professional Services</h2>
+            <p>
+                A sleek, informative website focused on trust, clarity, and a modern look can help you stand out. I offer professional web design services to elevate your online presence. 
+            </p>
+        </div>
+    </section>
+
+    <a href="contact.html" class="view-all-btn">Contact Information</a>
+    <a href="index.html" class="view-all-btn">Back to Home</a>
+
+    <footer>
+        &copy; 2025 MainPageWebsites. All rights reserved.
+    </footer>
+    <script>
+      // Scroll lift effect for .project elements
+      document.addEventListener('DOMContentLoaded', function() {
+        const projects = document.querySelectorAll('.project');
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('lifted');
+            } else {
+              entry.target.classList.remove('lifted');
+            }
+          });
+        }, { threshold: 0.15 });
+        projects.forEach(project => {
+          observer.observe(project);
+        });
+      });
+    </script>
+      <script>
+    // Preloader logic
+    window.addEventListener('DOMContentLoaded', function() {
+      setTimeout(function() {
+        document.getElementById('preloader').classList.add('hide');
+      }, 1200);
+    });
+    // ...existing code...
+  </script>
+</body>
+</body>
+</html>

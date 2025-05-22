@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="https://fonts.googleapis.com/css?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact - MainPageWebsites</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="icon" type="image/png" href="Logo.png" />
+</head>
+<body>
+  <div id="preloader">
+    <img src="Logo.png" alt="Loading..." />
+  </div>
+  <!-- ...existing code... -->
+    <header>
+        <h1>Contact</h1>
+        <p>Get in touch</p>
+    </header>
+
+    <section class="projects info-projects">
+        <div class="project">
+            <h2>Instagram</h2>
+            <p>
+                Message me on Instagram for quick responses and project inquiries.<br>
+                <a href="https://instagram.com/mainpgwebs" target="_blank" class="insta-link">@mainpgwebs</a>
+            </p>
+        </div>
+        <div class="project">
+            <h2>Email</h2>
+            <p>
+                For business inquiries, quotes, or detailed questions, email me anytime.<br>
+                <a href="mailto:mainpagewebsites@gmail.com" class="insta-link">mainpagewebsites@gmail.com</a>
+            </p>
+        </div>
+    </section>
+
+    <a href="index.html" class="view-all-btn">Back to Home</a>
+
+    <footer>
+        &copy; 2025 MainPageWebsites. All rights reserved.
+    </footer>
+    <script>
+      // Scroll lift effect for .project elements
+      document.addEventListener('DOMContentLoaded', function() {
+        const projects = document.querySelectorAll('.project');
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('lifted');
+            } else {
+              entry.target.classList.remove('lifted');
+            }
+          });
+        }, { threshold: 0.15 });
+        projects.forEach(project => {
+          observer.observe(project);
+        });
+      });
+    </script>
+      <script>
+    // Preloader logic
+    window.addEventListener('DOMContentLoaded', function() {
+      setTimeout(function() {
+        document.getElementById('preloader').classList.add('hide');
+      }, 1200);
+    });
+    // ...existing code...
+  </script>
+</body>
+</body>
+</html>
