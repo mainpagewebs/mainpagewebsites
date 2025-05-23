@@ -9,6 +9,12 @@
     <link rel="icon" type="image/png" href="Logo.png" />
 </head>
 <body>
+<<<<<<< HEAD
+=======
+  <div id="preloader">
+    <img src="Logo.png" alt="Loading..." />
+  </div>
+>>>>>>> 94ccba1 (Save local changes)
 
   <header>
     <h1>All Websites</h1>
@@ -38,9 +44,24 @@
   <footer>
     &copy; 2025 MainPageWebsites. All rights reserved.
   </footer>
+<<<<<<< HEAD
   <script>
     // Scroll lift effect for .project elements
     document.addEventListener('DOMContentLoaded', function() {
+
+  <script>
+    // Preloader logic and scroll lift effect for .project elements
+    document.addEventListener('DOMContentLoaded', function() {
+      // Preloader
+      setTimeout(function() {
+        const preloader = document.getElementById('preloader');
+        preloader.classList.add('hide');
+        preloader.addEventListener('transitionend', function() {
+          preloader.remove();
+        }, { once: true });
+      }, 1200);
+
+      // Scroll lift effect
       const projects = document.querySelectorAll('.project');
       const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
@@ -57,4 +78,5 @@
     });
   </script>
 </body>
+<<<<<<< HEAD
 </html>

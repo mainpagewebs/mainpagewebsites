@@ -9,6 +9,9 @@
     <link rel="icon" type="image/png" href="Logo.png" />
 </head>
 <body>
+  <div id="preloader">
+    <img src="Logo.png" alt="Loading..." />
+  </div>
 
   <header>
     <h1>MainPageWebsites</h1>
@@ -30,47 +33,56 @@
     </div>
   </section>
 
-    <a href="websites.html" class="view-all-btn">View All Websites</a>
+  <a href="websites.html" class="view-all-btn">View All Websites</a>
 
   <hr class="section-divider">
 
-    <section class="projects info-projects">
-        <div class="project">
-            <h2>100% Custom</h2>
-            <p>
-                I create websites tailored to your needs, ensuring a unique and personalized experience. Each project is designed from scratch, reflecting your brand's identity.
-            </p>
-        </div>
-        <div class="project">
-            <h2>Can Update</h2>
-            <p>
-                I provide content management, allowing updates to your website to keep it fresh and relevant. This can provide a dynamic experience for your visitors. 
-            </p>
-        </div>
-        <div class="project">
-            <h2>Professional Services</h2>
-            <p>
-                A sleek, informative website focused on trust, clarity, and a modern look can help you stand out. I offer professional web design services to elevate your online presence. 
-            </p>
-        </div>
-            <a href="information.html" class="view-all-btn">View All Information</a>
-    </section>
+  <section class="projects info-projects">
+    <div class="project">
+      <h2>100% Custom</h2>
+      <p>
+        I create websites tailored to your needs, ensuring a unique and personalized experience. Each project is designed from scratch, reflecting your brand's identity.
+      </p>
+    </div>
+    <div class="project">
+      <h2>Can Update</h2>
+      <p>
+        I provide content management, allowing updates to your website to keep it fresh and relevant. This can provide a dynamic experience for your visitors. 
+      </p>
+    </div>
+    <div class="project">
+      <h2>Professional Services</h2>
+      <p>
+        A sleek, informative website focused on trust, clarity, and a modern look can help you stand out. I offer professional web design services to elevate your online presence. 
+      </p>
+    </div>
+    <a href="information.html" class="view-all-btn">View All Information</a>
+  </section>
 
-      <hr class="section-divider">
+  <hr class="section-divider">
 
   <section class="social">
     <p>Follow us on Instagram</p>
-        <a href="https://instagram.com/mainpgwebs" target="_blank" class="insta-link">@mainpgwebs</a>
-      </section>
-
-
+    <a href="https://instagram.com/mainpgwebs" target="_blank" class="insta-link">@mainpgwebs</a>
+  </section>
 
   <footer>
     &copy; 2025 MainPageWebsites. All rights reserved.
   </footer>
+
   <script>
-    // Scroll lift effect for .project elements
+    // Preloader logic and scroll lift effect for .project elements
     document.addEventListener('DOMContentLoaded', function() {
+      // Preloader
+      setTimeout(function() {
+        const preloader = document.getElementById('preloader');
+        preloader.classList.add('hide');
+        preloader.addEventListener('transitionend', function() {
+          preloader.remove();
+        }, { once: true });
+      }, 1200);
+
+      // Scroll lift effect
       const projects = document.querySelectorAll('.project');
       const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {

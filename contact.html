@@ -56,3 +56,65 @@
     </script>
 </body>
 </html>
+  <div id="preloader">
+    <img src="Logo.png" alt="Loading..." />
+  </div>
+
+  <header>
+      <h1>Contact</h1>
+      <p>Get in touch</p>
+  </header>
+
+  <section class="projects info-projects">
+      <div class="project">
+          <h2>Instagram</h2>
+          <p>
+              Message me on Instagram for quick responses and project inquiries.<br>
+              <a href="https://instagram.com/mainpgwebs" target="_blank" class="insta-link">@mainpgwebs</a>
+          </p>
+      </div>
+      <div class="project">
+          <h2>Email</h2>
+          <p>
+              For business inquiries, quotes, or detailed questions, email me anytime.<br>
+              <a href="mailto:mainpagewebsites@gmail.com" class="insta-link">mainpagewebsites@gmail.com</a>
+          </p>
+      </div>
+  </section>
+
+  <a href="index.html" class="view-all-btn">Back to Home</a>
+
+  <footer>
+      &copy; 2025 MainPageWebsites. All rights reserved.
+  </footer>
+
+  <script>
+    // Preloader logic and scroll lift effect for .project elements
+    document.addEventListener('DOMContentLoaded', function() {
+      // Preloader
+      setTimeout(function() {
+        const preloader = document.getElementById('preloader');
+        preloader.classList.add('hide');
+        preloader.addEventListener('transitionend', function() {
+          preloader.remove();
+        }, { once: true });
+      }, 1200);
+
+      // Scroll lift effect
+      const projects = document.querySelectorAll('.project');
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('lifted');
+          } else {
+            entry.target.classList.remove('lifted');
+          }
+        });
+      }, { threshold: 0.15 });
+      projects.forEach(project => {
+        observer.observe(project);
+      });
+    });
+  </script>
+</body>
+</html>

@@ -277,3 +277,25 @@ footer {
     margin: 10px auto 18px auto;
   }
 }
+#preloader {
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(ellipse at bottom, #ffffff 0%, #ffffff 100%);
+  background-image: url('https://www.transparenttextures.com/patterns/stardust.png');
+  background-color: #ffffff; /* fallback solid color */
+  opacity: 1; /* Ensure fully opaque */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  transition: opacity 0.4s;
+}
+#preloader img {
+  width: 600px;
+  height: 600px;
+  object-fit: contain;
+}
+#preloader.hide {
+  opacity: 0;
+  pointer-events: none;
+}
