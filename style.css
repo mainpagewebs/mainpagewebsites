@@ -292,7 +292,34 @@ footer {
   text-shadow: 0 0 8px #24ff5a, 0 0 16px #24ff5a;
   font-weight: bold;
 }
-
+.floating-contact-btn {
+  position: fixed;
+  bottom: 24px;
+  left: 24px;
+  z-index: 2000;
+  padding: 16px 32px;
+  background-image: url('inverted image.png');
+  background-size: cover;
+  background-position: center;
+  color: #fff;
+  font-family: 'Orbitron', Arial, sans-serif;
+  font-size: 1.1em;
+  font-weight: bold;
+  border: none;
+  border-radius: 30px;
+  box-shadow: 0 0 16px 4px #24ff5a, 0 4px 24px #00000033;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background 0.3s, transform 0.2s, box-shadow 0.3s;
+}
+.floating-contact-btn:hover {
+  background-image: url('inverted image.png');
+  background-size: cover;
+  background-position: center;
+  color: #fff;
+  transform: scale(1.07);
+  box-shadow: 0 0 32px 8px #24ff5a, 0 6px 32px #00000055;
+}
 /* Responsive for phones */
 @media (max-width: 700px) {
   .projects,
@@ -373,5 +400,11 @@ footer {
   .deal-banner {
     font-size: 1em;
     padding: 12px 4px;
+  }
+  .floating-contact-btn {
+    padding: 12px 18px;
+    font-size: 1em;
+    bottom: 12px;
+    left: 12px;
   }
 }
