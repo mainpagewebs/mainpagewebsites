@@ -1,20 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link href="https://fonts.googleapis.com/css?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>All Websites</title>
-    <link rel="stylesheet" href="style.css" />
-    <link rel="icon" type="image/png" href="Logo.png" />
+  <link href="https://fonts.googleapis.com/css?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>All Websites</title>
+  <link rel="stylesheet" href="/style.css" />
+  <link rel="icon" type="image/png" href="/Logo.png" />
 </head>
 <body>
-    <div class="deal-banner">
+  <div class="deal-banner">
     <strong>Special Offer:</strong> Get a <span class="highlight">free </span> preview of your website before you purchase!
   </div>
 
   <div id="preloader">
-    <img src="Logo.png" alt="Loading..." />
+    <img src="/Logo.png" alt="Loading..." />
   </div>
 
   <header>
@@ -24,39 +24,42 @@
 
   <section class="projects">
     <div class="project">
-      <img src="Copaciu Image.png" alt="Project Dentistry Story" class="project-img" />
+      <img src="/Copaciu Image.png" alt="Project Traditional Cuisine" class="project-img" />
       <h2>Project Traditional Cuisine</h2>
       <a href="https://www.bucatarialuiadriancopaciu.com/" target="_blank" class="visit-btn">Visit Website</a>
     </div>
     <div class="project">
-      <img src="Biserica Image.png" alt="Project Dentistry Story" class="project-img" />
+      <img src="/Biserica Image.png" alt="Project Romanian Church" class="project-img" />
       <h2>Project Romanian Church</h2>
       <a href="https://bisericaortodoxahouston.com/" target="_blank" class="visit-btn">Visit Website</a>
     </div>
     <div class="project">
-      <img src="Bella Image.png" alt="Project Dentistry Story" class="project-img" />
+      <img src="/Bella Image.png" alt="Project Dentistry Story" class="project-img" />
       <h2>Project Dentistry Story</h2>
       <a href="https://bellasgiftforahealthysmile.com" target="_blank" class="visit-btn">Visit Website</a>
     </div>
   </section>
 
-  <a href="index.html" class="view-all-btn">Back to Home</a>
+  <a href="/" class="view-all-btn">Back to Home</a>
 
   <footer>
     &copy; 2025 MainPageWebsites. All rights reserved.
   </footer>
 
+  <a href="/contact" class="floating-contact-btn">Contact Us</a>
+
   <script>
-    // Preloader logic and scroll lift effect for .project elements
     document.addEventListener('DOMContentLoaded', function() {
       // Preloader
-      setTimeout(function() {
-        const preloader = document.getElementById('preloader');
-        preloader.classList.add('hide');
-        preloader.addEventListener('transitionend', function() {
-          preloader.remove();
-        }, { once: true });
-      }, 1200);
+      const preloader = document.getElementById('preloader');
+      if (preloader) {
+        setTimeout(function() {
+          preloader.classList.add('hide');
+          preloader.addEventListener('transitionend', function() {
+            preloader.remove();
+          }, { once: true });
+        }, 1200);
+      }
 
       // Scroll lift effect
       const projects = document.querySelectorAll('.project');
@@ -74,6 +77,5 @@
       });
     });
   </script>
-  <a href="contact.html" class="floating-contact-btn">Contact Us</a>
 </body>
 </html>

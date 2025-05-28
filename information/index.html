@@ -4,7 +4,7 @@
   <link href="https://fonts.googleapis.com/css?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>MainPageWebsites</title>
+  <title>Information - MainPageWebsites</title>
   <link rel="stylesheet" href="/style.css" />
   <link rel="icon" type="image/png" href="/Logo.png" />
 </head>
@@ -13,42 +13,10 @@
     <strong>Special Offer:</strong> Get a <span class="highlight">free </span> preview of your website before you purchase!
   </div>
 
-  <div id="preloader">
-    <img src="/Logo.png" alt="Loading..." />
-  </div>
-
   <header>
-    <h1>MainPageWebsites</h1>
-    <p>My portfolio of my website projects</p>
+    <h1>Information</h1>
+    <p>Learn more about my web design services and what I offer.</p>
   </header>
-
-  <section class="projects">
-    <div class="project">
-      <img src="/Copaciu Image.png" alt="Project Adrian Copaciu" class="project-img" />
-      <h2>Project Traditional Cuisine</h2>
-    </div>
-    <div class="project">
-      <img src="/Biserica Image.png" alt="Project Romanian Church" class="project-img" />
-      <h2>Project Romanian Church</h2>
-    </div>
-    <div class="project">
-      <img src="/Bella Image.png" alt="Project Dentistry Story" class="project-img" />
-      <h2>Project Dentistry Story</h2>
-    </div>
-  </section>
-
-  <a href="/websites" class="view-all-btn">View All Websites</a>
-
-  <section class="angled-wrapper">
-    <div class="angled-bg">
-      <div class="angled-overlay">
-        <div class="content">
-          <h2>Daily Quote</h2>
-          <p>"Your website is more than a digital presence—it's your best employee, working 24/7 to attract, engage, and convert customers into growth."</p>
-        </div>
-      </div>
-    </div>
-  </section>
 
   <section class="projects info-projects">
     <div class="project">
@@ -69,30 +37,35 @@
         A sleek, informative website focused on trust, clarity, and a modern look can help you stand out. I offer professional web design services to elevate your online presence. 
       </p>
     </div>
-    <a href="/information" class="view-all-btn">View All Information</a>
   </section>
 
-  <hr class="section-divider">
-
-  <section class="social">
-    <p>Follow us on Instagram</p>
-    <a href="https://instagram.com/mainpgwebs" target="_blank" class="insta-link">@mainpgwebs</a>
-  </section>
+  <a href="/contact" class="view-all-btn">Contact Information</a>
+  <a href="/" class="view-all-btn">Back to Home</a>
 
   <footer>
     &copy; 2025 MainPageWebsites. All rights reserved.
   </footer>
 
+  <div id="preloader">
+    <img src="/Logo.png" alt="Loading..." />
+  </div>
+
+  <a href="/contact" class="floating-contact-btn">Contact Us</a>
+
   <script>
     document.addEventListener('DOMContentLoaded', function() {
-      setTimeout(function() {
-        const preloader = document.getElementById('preloader');
-        preloader.classList.add('hide');
-        preloader.addEventListener('transitionend', function() {
-          preloader.remove();
-        }, { once: true });
-      }, 1200);
+      // Preloader
+      const preloader = document.getElementById('preloader');
+      if (preloader) {
+        setTimeout(function() {
+          preloader.classList.add('hide');
+          preloader.addEventListener('transitionend', function() {
+            preloader.remove();
+          }, { once: true });
+        }, 1200);
+      }
 
+      // Scroll lift effect
       const projects = document.querySelectorAll('.project');
       const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
@@ -108,6 +81,5 @@
       });
     });
   </script>
-  <a href="/contact" class="floating-contact-btn">Contact Us</a>
 </body>
 </html>
