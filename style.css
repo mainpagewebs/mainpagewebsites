@@ -278,6 +278,31 @@ footer {
   margin-bottom: 12px;
 }
 
+.deal-banner {
+  width: 100%;
+  background-image: url('inverted image.png');
+  background-size: cover;
+  background-position: center;
+  color: #ffffff;
+  font-family: 'Orbitron', Arial, sans-serif;
+  font-size: 1.15em;
+  padding: 18px 0;
+  text-align: center;
+  font-weight: bold;
+  letter-spacing: 0.5px;
+  box-shadow: 0 2px 12px #0002;
+  z-index: 1000;
+  position: relative;
+}
+.deal-banner .highlight {
+  color: #ffffff;
+  background: transparent;
+  padding: 18px 0;
+  border-radius: 8px;
+  margin: 0 2px;
+  text-shadow: 0 0 8px #24ff5a, 0 0 16px #24ff5a;
+  font-weight: bold;
+}
 
 /* Responsive for phones */
 @media (max-width: 700px) {
@@ -353,4 +378,11 @@ footer {
 #preloader.hide {
   opacity: 0;
   pointer-events: none;
+}
+
+@media (max-width: 700px) {
+  .deal-banner {
+    font-size: 1em;
+    padding: 12px 4px;
+  }
 }
