@@ -1,113 +1,122 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <link href="https://fonts.googleapis.com/css?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+
+  <link rel="icon" type="image/png" href="Logo.png" />
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>MainPageWebsites</title>
-  <link rel="stylesheet" href="/style.css" />
-  <link rel="icon" type="image/png" href="/Logo.png" />
+  <title>Main Page Websites</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+
 </head>
 <body>
-  <div class="deal-banner">
-    <strong>Special Offer:</strong> Get a <span class="highlight">free </span> preview of your website before you purchase!
-  </div>
+  <div class="portfolio-container">
+    <header class="profile">
+      <img src="Logo.png" alt="Main Page Websites Logo" class="profile-logo" />
+      <h1>Main Page Websites</h1>
+      <p class="tagline">Professional websites for creators, entrepreneurs, and small businesses.</p>
+    </header>
 
-  <div id="preloader">
-    <img src="/Logo.png" alt="Loading..." />
-  </div>
-
-  <header>
-    <h1>MainPageWebsites</h1>
-    <p>My portfolio of my website projects</p>
-  </header>
-
-  <section class="projects">
-    <div class="project">
-      <img src="/Copaciu Image.png" alt="Project Adrian Copaciu" class="project-img" />
+    <section class="carousel-3d">
+  <div class="carousel-cards" id="carouselCards">
+    <div class="project-card">
+      <img src="Copaciu Image.png" alt="Copaciu Project" class="project-img" />
       <h2>Project Traditional Cuisine</h2>
-    </div>
-    <div class="project">
-      <img src="/Biserica Image.png" alt="Project Romanian Church" class="project-img" />
-      <h2>Project Romanian Church</h2>
-    </div>
-    <div class="project">
-      <img src="/Bella Image.png" alt="Project Dentistry Story" class="project-img" />
-      <h2>Project Dentistry Story</h2>
-    </div>
-  </section>
-
-  <a href="/websites" class="view-all-btn">View All Websites</a>
-
-  <section class="angled-wrapper">
-    <div class="angled-bg">
-      <div class="angled-overlay">
-        <div class="content">
-          <h2>Daily Quote</h2>
-          <p>"Your website is more than a digital presence—it's your best employee, working 24/7 to attract, engage, and convert customers into growth."</p>
-        </div>
+      <a href="https://www.bucatarialuiadriancopaciu.com/" class="btn" target="_blank">Preview</a>
+      <div class="carousel-3d-buttons under-card">
+        <button onclick="rotateCarousel(-1)">‹</button>
+        <button onclick="rotateCarousel(1)">›</button>
       </div>
     </div>
-  </section>
 
-  <section class="projects info-projects">
-    <div class="project">
-      <h2>100% Custom</h2>
-      <p>
-        I create websites tailored to your needs, ensuring a unique and personalized experience. Each project is designed from scratch, reflecting your brand's identity.
-      </p>
+    <div class="project-card">
+      <img src="Bella Image.png" alt="Bella's Dental Site" class="project-img" />
+      <h2>Project Dentistry</h2>
+      <a href="https://bellasgiftforahealthysmile.com/" class="btn" target="_blank">Preview</a>
+      <div class="carousel-3d-buttons under-card">
+        <button onclick="rotateCarousel(-1)">‹</button>
+        <button onclick="rotateCarousel(1)">›</button>
+      </div>
     </div>
-    <div class="project">
-      <h2>Can Update</h2>
-      <p>
-        I provide content management, allowing updates to your website to keep it fresh and relevant. This can provide a dynamic experience for your visitors. 
-      </p>
+
+    <div class="project-card">
+      <img src="Biserica Image.png" alt="Church Website" class="project-img" />
+      <h2>Project Biserica</h2>
+      <a href="https://bisericaortodoxahouston.com/" class="btn" target="_blank">Preview</a>
+      <div class="carousel-3d-buttons under-card">
+        <button onclick="rotateCarousel(-1)">‹</button>
+        <button onclick="rotateCarousel(1)">›</button>
+      </div>
     </div>
-    <div class="project">
-      <h2>Professional Services</h2>
-      <p>
-        A sleek, informative website focused on trust, clarity, and a modern look can help you stand out. I offer professional web design services to elevate your online presence. 
-      </p>
-    </div>
-    <a href="/information" class="view-all-btn">View All Information</a>
-  </section>
+  </div>
+</section>
 
-  <hr class="section-divider">
+    <section class="contact">
+      <h2>Contact Me</h2>
+      <p><strong>Email:</strong> <a href="mailto:mainpagewebs@gmail.com">mainpagewebs@gmail.com</a></p>
+      <p><strong>Instagram:</strong> <a href="https://instagram.com/mainpgwebs" target="_blank">@mainpgwebs</a></p>
+    </section>
 
-  <section class="social">
-    <p>Follow us on Instagram</p>
-    <a href="https://instagram.com/mainpgwebs" target="_blank" class="insta-link">@mainpgwebs</a>
-  </section>
-
-  <footer>
-    &copy; 2025 MainPageWebsites. All rights reserved.
-  </footer>
+    <footer>
+      <p>© 2025 Main Page Websites</p>
+    </footer>
+  </div>
 
   <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      setTimeout(function() {
-        const preloader = document.getElementById('preloader');
-        preloader.classList.add('hide');
-        preloader.addEventListener('transitionend', function() {
-          preloader.remove();
-        }, { once: true });
-      }, 1200);
+  const cards = document.querySelectorAll(".carousel-cards .project-card");
+  let currentIndex = 0;
 
-      const projects = document.querySelectorAll('.project');
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('lifted');
-          } else {
-            entry.target.classList.remove('lifted');
-          }
-        });
-      }, { threshold: 0.15 });
-      projects.forEach(project => {
-        observer.observe(project);
-      });
+  function updateCarousel() {
+    cards.forEach((card, i) => {
+      card.classList.remove("left", "right", "active");
+
+      if (i === currentIndex) {
+        card.classList.add("active");
+      } else if (i === (currentIndex - 1 + cards.length) % cards.length) {
+        card.classList.add("left");
+      } else if (i === (currentIndex + 1) % cards.length) {
+        card.classList.add("right");
+      }
     });
-  </script>
-  <a href="/contact" class="floating-contact-btn">Contact Us</a>
+  }
+
+  function rotateCarousel(direction) {
+    currentIndex = (currentIndex + direction + cards.length) % cards.length;
+    updateCarousel();
+  }
+
+  let autoRotate = setInterval(() => rotateCarousel(1), 5000);
+
+  const carouselTrack = document.querySelector(".carousel-cards");
+
+  carouselTrack.addEventListener("mouseenter", () => clearInterval(autoRotate));
+  carouselTrack.addEventListener("mouseleave", () => {
+    autoRotate = setInterval(() => rotateCarousel(1), 5000);
+  });
+
+  updateCarousel();
+
+  // === Swipe detection for mobile ===
+  let startX = 0;
+
+  carouselTrack.addEventListener("touchstart", (e) => {
+    startX = e.touches[0].clientX;
+  });
+
+  carouselTrack.addEventListener("touchend", (e) => {
+    let endX = e.changedTouches[0].clientX;
+    let diff = endX - startX;
+
+    if (Math.abs(diff) > 50) {
+      if (diff < 0) {
+        rotateCarousel(1); // swiped left
+      } else {
+        rotateCarousel(-1); // swiped right
+      }
+    }
+  });
+</script>
+
 </body>
 </html>

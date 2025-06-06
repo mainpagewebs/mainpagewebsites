@@ -1,410 +1,187 @@
-body {
-font-family: 'Orbitron', Arial, sans-serif;
+/* === Reset and Base Styles === */
+* {
+  box-sizing: border-box;
   margin: 0;
-  font-family: 'Arial', sans-serif;
-  background: radial-gradient(ellipse at bottom, #0d1b2a 0%, #000000 100%);
-  color: rgb(0, 0, 0);
-  text-align: center;
-  background-image: url('https://www.transparenttextures.com/patterns/stardust.png');
-}
-h1, h2, h3, h4, h5, h6, p, a {
-  font-family: 'Orbitron', Arial, sans-serif;
+  padding: 0;
 }
 
-header {
-  padding: 50px 20px 20px;
+html, body {
+  width: 100%;
+  overflow-x: hidden;
+  font-family: 'Orbitron', sans-serif;
+  background: url('inverted bg.png') no-repeat center center fixed;
+  background-size: cover;
+  color: white;
+  min-height: 100vh;
+}
+
+a {
+  text-decoration: none;
+  color: #00d9ff;
+}
+
+/* === Container === */
+.portfolio-container {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+  width: 100%;
+}
+
+/* === Profile Section === */
+.profile-logo {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  border: 3px solid white;
+  margin-bottom: 1rem;
 }
 
 h1 {
-  font-size: 3em;
-  margin-bottom: 10px;
-  color: #000000;
-  /* Removed text-shadow */
+  margin: 0.5rem 0;
+  font-size: 2rem;
 }
 
-p {
-  font-size: 1.2em;
-  color: #000000;
-  /* Removed text-shadow */
+.tagline {
+  color: #ccc;
+  font-size: 1rem;
+  margin-bottom: 2rem;
 }
 
-.projects {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 30px;
-  padding: 50px 20px;
+/* === Carousel Container === */
+.carousel-3d {
+  position: relative;
+  perspective: 1000px;
+  margin: 4rem 0; /* spacing above and below carousel */
 }
 
-.project {
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 15px;
-  width: 300px;
-  overflow: hidden;
-  box-shadow: 0 0 15px rgba(0,0,0,0.4);
-  transition: transform 0.7s cubic-bezier(.4,2,.6,1), box-shadow 0.7s cubic-bezier(.4,2,.6,1);
-}
-
-.project video {
+.carousel-cards {
+  position: relative;
   width: 100%;
-  height: 200px;
-  object-fit: cover;
-  display: block;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  height: 420px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform-style: preserve-3d;
+  transition: transform 0.8s ease;
 }
 
-.project h2 {
-  margin: 15px 0 10px;
-  font-size: 1.5em;
-  color: #000000;
-  /* Removed text-shadow */
-}
-
-.project button {
-  margin-bottom: 20px;
-  padding: 10px 25px;
-  font-size: 1em;
-  border: none;
-  background: linear-gradient(90deg, #00bfff 0%, #0080ff 100%);
-  color: rgb(0, 0, 0);
-  border-radius: 25px;
-  cursor: pointer;
-  transition: background 0.3s ease, box-shadow 0.3s;
-  box-shadow: 0 2px 8px #00000044;
-}
-
-.project button:hover {
-  background: linear-gradient(90deg, #0080ff 0%, #00bfff 100%);
-  box-shadow: 0 0 16px #00000099;
-}
-
-footer {
-  margin-top: 40px;
-  font-size: 0.9em;
-  color: #888;
-  padding-bottom: 40px;
-  /* Removed text-shadow */
-}
-
-.view-all-btn, .visit-btn {
-  display: inline-block;
-  margin: 30px auto 0 auto;
-  padding: 14px 40px;
-  font-size: 1.1em;
-  border: 2px solid #000000;
-  background: transparent;
-  color: #000000;
-  border-radius: 25px;
-  cursor: pointer;
-  text-decoration: none;
-  box-shadow: none;
-  /* Removed text-shadow */
-  transition: background 0.3s, color 0.3s, box-shadow 0.3s, transform 0.2s;
-}
-.view-all-btn:hover, .visit-btn:hover {
-  background: rgba(35, 35, 35, 0.1);
-  color: #000000;
-  box-shadow: 0 0 16px #3f3f3f99;
-  transform: scale(1.05);
-}
-
-.visit-btn {
-  display: inline-block;
-  margin: 10px auto 25px auto;
-  padding: 6px 32px 6px 32px; /* top right bottom left */
-  font-size: 1.05em;
-  border: 2px solid #000000;
-  background: transparent;
-  color: #000000;
-  border-radius: 25px;
-  cursor: pointer;
-  text-decoration: none;
-  box-shadow: none;
-  transition: background 0.3s, color 0.3s, box-shadow 0.3s, transform 0.2s;
-}
-.visit-btn:hover {
-  background: rgba(216, 216, 216, 0.1);
-  color: #000000;
-  box-shadow: 0 0 16px #00000099;
-  transform: scale(1.05);
-}
-
-.section-divider {
-  margin: 50px auto 30px auto;
-  border: none;
-  border-top: 2px solid #000000;
-  width: 60%;
-  opacity: 0.7;
-}
-
-.social {
-  margin-bottom: 40px;
-}
-
-.social p {
-  font-size: 1.3em;
-  color: #000000;
-  margin-bottom: 10px;
-}
-
-.insta-link {
-  color: #000000;
-  font-size: 1.2em;
-  text-decoration: none;
-  border-bottom: 1px solid #401eff;
-  transition: color 0.2s, border-bottom 0.2s;
-}
-
-.insta-link:hover {
-  color: #401eff;
-  border-bottom: 1px solid #401eff;
-}
-.info-section {
-  max-width: 600px;
-  margin: 40px auto 60px auto;
-  background: rgba(20, 30, 48, 0.7);
-  border-radius: 18px;
-  padding: 32px 24px;
-  color: #fff;
-  text-align: left;
-}
-.info-section h2 {
-  color: #00eaff;
-  margin-top: 24px;
-}
-.info-section ul {
-  margin-left: 20px;
-  margin-bottom: 24px;
-}
-.info-section li {
-  margin-bottom: 8px;
-}
-.info-section {
-  max-width: 600px;
-  margin: 40px auto 60px auto;
-  background: rgba(20, 30, 48, 0.7);
-  border-radius: 18px;
-  padding: 32px 24px;
-  color: #fff;
-  text-align: left;
-}
-.info-section h2 {
-  color: #00eaff;
-  margin-top: 24px;
-}
-.info-section ul {
-  margin-left: 20px;
-  margin-bottom: 24px;
-}
-.info-section li {
-  margin-bottom: 8px;
-}
-
-.info-projects {
-  flex-direction: column;
-  align-items: stretch;
-  gap: 30px;
-}
-
-.info-projects .project {
-  width: 90%;
-  max-width: 700px;
-  margin: 0 auto;
-}
-
-.angled-wrapper {
-  position: relative;
-  overflow: hidden;
-  font-family: Orbitron, sans-serif; /* Use your custom font if needed */
-}
-
-.angled-bg {
-  background-image: url('inverted image.png'); /* Your inverted star image */
-  background-size: cover;
-  background-position: center;
-  clip-path: polygon(0 5%, 100% 0%, 100% 95%, 0% 100%);
-  padding: 140px 20px;
-  position: relative;
-}
-
-.angled-overlay {
-  background-color: rgba(0, 0, 0, 0.6); /* Overlay to enhance text contrast */
-  padding: 100px 20px;
+/* === Card Styling === */
+.project-card {
+  position: absolute;
+  width: 300px;
+  height: auto;
+  background: #1f1f1f;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
   text-align: center;
-}
-
-.content {
+  padding: 1rem;
   color: white;
-  max-width: 800px;
-  margin: 0 auto;
+  opacity: 0;
+  transition: all 0.6s ease;
+  transform-origin: center center;
+  pointer-events: none;
 }
 
-.content h2 {
-  font-size: 2.5rem;
-  margin-bottom: 10px;
-  text-shadow: 0 0 10px #ffffffaa;
-}
-
-.content p {
-  font-size: 1.25rem;
-  color: #ffffff;
-  text-shadow: 0 0 10px rgba(255, 255, 255, 0.6);
+.project-card.active {
   opacity: 1;
-  margin-top: 15px;
-  max-width: 700px;
-  margin-left: auto;
-  margin-right: auto;
+  transform: translateZ(150px) scale(1.1);
+  z-index: 3;
+  pointer-events: auto;
+}
+
+.project-card.left {
+  opacity: 0.6;
+  transform: translateX(-220px) rotateY(30deg) scale(0.9);
+  z-index: 2;
+}
+
+.project-card.right {
+  opacity: 0.6;
+  transform: translateX(220px) rotateY(-30deg) scale(0.9);
+  z-index: 2;
 }
 
 .project-img {
   width: 100%;
-  max-width: 340px;
-  height: 180px;
-  object-fit: cover;
-  border-radius: 18px;
-  box-shadow: 0 2px 12px #0002;
-  margin-bottom: 12px;
-}
-
-.deal-banner {
-  width: 100%;
-  background-image: url('inverted image.png');
-  background-size: cover;
-  background-position: center;
-  color: #ffffff;
-  font-family: 'Orbitron', Arial, sans-serif;
-  font-size: 1.15em;
-  padding: 18px 0;
-  text-align: center;
-  font-weight: bold;
-  letter-spacing: 0.5px;
-  box-shadow: 0 2px 12px #0002;
-  z-index: 1000;
-  position: relative;
-}
-.deal-banner .highlight {
-  color: #ffffff;
-  background: transparent;
-  padding: 18px 0;
   border-radius: 8px;
-  margin: 0 2px;
-  text-shadow: 0 0 8px #24ff5a, 0 0 16px #24ff5a;
-  font-weight: bold;
-}
-.floating-contact-btn {
-  position: fixed;
-  bottom: 24px;
-  left: 24px;
-  z-index: 2000;
-  padding: 16px 32px;
-  background-image: url('inverted image.png');
-  background-size: cover;
-  background-position: center;
-  color: #fff;
-  font-family: 'Orbitron', Arial, sans-serif;
-  font-size: 1.1em;
-  font-weight: bold;
-  border: none;
-  border-radius: 30px;
-  box-shadow: 0 0 16px 4px #24ff5a, 0 4px 24px #00000033;
-  cursor: pointer;
-  text-decoration: none;
-  transition: background 0.3s, transform 0.2s, box-shadow 0.3s;
-}
-.floating-contact-btn:hover {
-  background-image: url('inverted image.png');
-  background-size: cover;
-  background-position: center;
-  color: #fff;
-  transform: scale(1.07);
-  box-shadow: 0 0 32px 8px #24ff5a, 0 6px 32px #00000055;
-}
-/* Responsive for phones */
-@media (max-width: 700px) {
-  .projects,
-  .info-projects {
-    flex-direction: column;
-    align-items: center;
-    gap: 16px;
-    padding: 12px 2px;
-  }
-  .project {
-    width: 90vw !important;
-    max-width: 95vw;
-    min-width: unset;
-    margin: 0 auto 14px auto;
-    padding: 0;
-  }
-  .project video {
-    width: 100%;
-    /* height remains 140px or as previously set */
-    min-width: 100%;
-    max-width: 100vw;
-    pointer-events: none;
-    user-select: none;
-    object-fit: cover;
-    display: block;
-    touch-action: none;
-  }
-  .project h2 {
-    font-size: 1.05em;
-    margin: 10px 0 7px;
-  }
-  h1 {
-    font-size: 1.3em;
-  }
-  h2 {
-    font-size: 1em;
-  }
-  p, .social p {
-    font-size: 0.95em;
-  }
-  .view-all-btn, .visit-btn {
-    padding: 7px 12px;
-    font-size: 0.95em;
-  }
-  .section-divider {
-    width: 95%;
-    margin: 30px auto 18px auto;
-  }
-  .info-section {
-    padding: 10px 2px;
-    margin: 10px auto 18px auto;
-  }
-}
-#preloader {
-  position: fixed;
-  inset: 0;
-  background: radial-gradient(ellipse at bottom, #ffffff 0%, #ffffff 100%);
-  background-image: url('https://www.transparenttextures.com/patterns/stardust.png');
-  background-color: #ffffff; /* fallback solid color */
-  opacity: 1; /* Ensure fully opaque */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 9999;
-  transition: opacity 0.4s;
-}
-#preloader img {
-  width: 600px;
-  height: 600px;
-  object-fit: contain;
-}
-#preloader.hide {
-  opacity: 0;
-  pointer-events: none;
+  margin-bottom: 1rem;
 }
 
-@media (max-width: 700px) {
-  .deal-banner {
-    font-size: 1em;
-    padding: 12px 4px;
-  }
-  .floating-contact-btn {
-    padding: 12px 18px;
-    font-size: 1em;
-    bottom: 12px;
-    left: 12px;
-  }
+.project-card h2 {
+  font-size: 1.2rem;
+  margin: 0.5rem 0;
+}
+
+.btn {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  background: #00d9ff;
+  color: black;
+  border-radius: 6px;
+  font-weight: bold;
+  margin-bottom: 0.8rem;
+  transition: background 0.3s ease;
+}
+
+.btn:hover {
+  background: #00aacc;
+}
+
+/* === Arrow Buttons under Active Card Only === */
+.project-card .carousel-3d-buttons {
+  display: none;
+}
+
+.project-card.active .carousel-3d-buttons {
+  display: block;
+}
+
+.carousel-3d-buttons.under-card {
+  text-align: center;
+  margin-top: 0.4rem;
+  margin-bottom: 0;
+}
+
+.carousel-3d-buttons.under-card button {
+  font-size: 1.5rem;
+  padding: 0.4rem 0.9rem;
+  background: #00d9ff;
+  color: black;
+  border: none;
+  border-radius: 8px;
+  margin: 0 0.5rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.carousel-3d-buttons.under-card button:hover {
+  background: #00aacc;
+}
+
+/* === Contact Section === */
+.contact {
+  margin-top: 4rem;
+  background: #1a1a1a;
+  padding: 2rem;
+  border-radius: 12px;
+  color: #eee;
+}
+
+.contact h2 {
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+}
+
+.contact p {
+  margin: 0.5rem 0;
+  font-size: 1rem;
+}
+
+/* === Footer === */
+footer {
+  margin-top: 4rem;
+  font-size: 0.9rem;
+  color: #aaa;
 }
