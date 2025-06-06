@@ -185,3 +185,50 @@ footer {
   font-size: 0.9rem;
   color: #aaa;
 }
+
+.mid-section {
+  margin: 4rem 0;
+  padding: 2rem;
+  background-color: rgba(0, 0, 0, 0.6);
+  border-radius: 12px;
+  text-align: center;
+  color: #eee;
+}
+
+.mid-section h2 {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+}
+
+.mid-section p {
+  font-size: 1rem;
+  max-width: 700px;
+  margin: 0 auto 2rem auto;
+  color: #ccc;
+}
+
+.features {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+}
+
+.feature {
+  background-color: #1f1f1f;
+  padding: 1rem;
+  border-radius: 8px;
+  max-width: 280px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+.feature h3 {
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+  color: #00d9ff;
+}
+
+.feature p {
+  font-size: 0.95rem;
+  color: #bbb;
+}
