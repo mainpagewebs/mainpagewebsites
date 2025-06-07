@@ -58,33 +58,30 @@
   </script>
 
   <link rel="icon" type="image/png" href="Logo.png" />
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
+  <div id="preloader">
+  <img src="Logo.png" alt="Main Page Websites Logo" class="preloader-logo" />
+</div>
+
   <div class="portfolio-container">
+
+    <!-- Header -->
     <header class="profile">
       <img src="Logo.png" alt="Main Page Websites Logo" class="profile-logo" />
       <h1>Main Page Websites</h1>
       <p class="tagline">Professional websites for creators, entrepreneurs, and small businesses.</p>
     </header>
 
+    <!-- Carousel -->
     <section class="carousel-3d">
       <div class="carousel-cards" id="carouselCards">
-        <!-- Projects -->
-        <div class="project-card">
-          <img src="Copaciu Image.png" alt="Copaciu Project Website Preview" class="project-img" loading="lazy" />
-          <h2>Project Traditional Cuisine</h2>
-          <a href="https://www.bucatarialuiadriancopaciu.com/" class="btn" target="_blank">Preview</a>
-          <div class="carousel-3d-buttons under-card">
-            <button onclick="rotateCarousel(-1)">‹</button>
-            <button onclick="rotateCarousel(1)">›</button>
-          </div>
-        </div>
 
         <div class="project-card">
-          <img src="Bella Image.png" alt="Bella Dental Website Preview" class="project-img" loading="lazy" />
+          <img src="Bella Image.png" alt="Bella Dental Website" class="project-img" loading="lazy" />
           <h2>Project Dentistry</h2>
           <a href="https://bellasgiftforahealthysmile.com/" class="btn" target="_blank">Preview</a>
           <div class="carousel-3d-buttons under-card">
@@ -94,7 +91,17 @@
         </div>
 
         <div class="project-card">
-          <img src="Biserica Image.png" alt="Biserica Orthodox Website Preview" class="project-img" loading="lazy" />
+          <img src="Copaciu Image.png" alt="Copaciu Project" class="project-img" loading="lazy" />
+          <h2>Project Traditional Cuisine</h2>
+          <a href="https://www.bucatarialuiadriancopaciu.com/" class="btn" target="_blank">Preview</a>
+          <div class="carousel-3d-buttons under-card">
+            <button onclick="rotateCarousel(-1)">‹</button>
+            <button onclick="rotateCarousel(1)">›</button>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <img src="Biserica Image.png" alt="Biserica Project" class="project-img" loading="lazy" />
           <h2>Project Biserica</h2>
           <a href="https://bisericaortodoxahouston.com/" class="btn" target="_blank">Preview</a>
           <div class="carousel-3d-buttons under-card">
@@ -105,26 +112,23 @@
       </div>
     </section>
 
-    <section class="mid-section">
-      <h2>Why Choose Main Page Websites?</h2>
-      <p>We craft high-quality, responsive websites designed to help creators and businesses grow their online presence. Every website is built with attention to detail, speed, and user experience in mind.</p>
-
-      <div class="features">
-        <div class="feature">
-          <h3>⚡ Fast & Optimized</h3>
-          <p>We ensure all sites load quickly and are optimized for SEO and performance.</p>
-        </div>
-        <div class="feature">
-          <h3>📱 Mobile Ready</h3>
-          <p>Your site will look amazing on phones, tablets, and desktops—no matter the screen size.</p>
-        </div>
-        <div class="feature">
-          <h3>🎨 Custom Design</h3>
-          <p>Every design is unique and tailored to your brand and your message.</p>
-        </div>
-      </div>
+    <!-- Parallax Highlight Sections -->
+    <section class="section-highlight">
+      <h2>⚡ Fast & Optimized</h2>
+      <p>We build websites that load quickly, pass Core Web Vitals, and rank higher in search engines.</p>
     </section>
 
+    <section class="section-highlight alt">
+      <h2>📱 Mobile Ready</h2>
+      <p>Your website will look stunning and function perfectly across all devices.</p>
+    </section>
+
+    <section class="section-highlight">
+      <h2>🎨 Custom Designs</h2>
+      <p>No templates here. Every website is crafted to fit your unique brand and goals.</p>
+    </section>
+
+    <!-- Contact -->
     <section class="contact">
       <h2>Contact Us</h2>
       <p><strong>Email:</strong> <a href="mailto:mainpagewebs@gmail.com">mainpagewebs@gmail.com</a></p>
@@ -136,6 +140,7 @@
     </footer>
   </div>
 
+  <!-- Carousel Script -->
   <script>
     const cards = document.querySelectorAll(".carousel-cards .project-card");
     let currentIndex = 0;
@@ -143,14 +148,9 @@
     function updateCarousel() {
       cards.forEach((card, i) => {
         card.classList.remove("left", "right", "active");
-
-        if (i === currentIndex) {
-          card.classList.add("active");
-        } else if (i === (currentIndex - 1 + cards.length) % cards.length) {
-          card.classList.add("left");
-        } else if (i === (currentIndex + 1) % cards.length) {
-          card.classList.add("right");
-        }
+        if (i === currentIndex) card.classList.add("active");
+        else if (i === (currentIndex - 1 + cards.length) % cards.length) card.classList.add("left");
+        else if (i === (currentIndex + 1) % cards.length) card.classList.add("right");
       });
     }
 
@@ -160,7 +160,6 @@
     }
 
     let autoRotate = setInterval(() => rotateCarousel(1), 5000);
-
     const carouselTrack = document.querySelector(".carousel-cards");
 
     carouselTrack.addEventListener("mouseenter", () => clearInterval(autoRotate));
@@ -171,22 +170,16 @@
     updateCarousel();
 
     let startX = 0;
-    carouselTrack.addEventListener("touchstart", (e) => {
-      startX = e.touches[0].clientX;
-    });
-
+    carouselTrack.addEventListener("touchstart", (e) => startX = e.touches[0].clientX);
     carouselTrack.addEventListener("touchend", (e) => {
-      let endX = e.changedTouches[0].clientX;
-      let diff = endX - startX;
-
-      if (Math.abs(diff) > 50) {
-        if (diff < 0) {
-          rotateCarousel(1); // swiped left
-        } else {
-          rotateCarousel(-1); // swiped right
-        }
-      }
+      let diff = e.changedTouches[0].clientX - startX;
+      if (Math.abs(diff) > 50) rotateCarousel(diff < 0 ? 1 : -1);
     });
   </script>
+
+  <!-- Animations -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <script src="animations.js"></script>
 </body>
 </html>
