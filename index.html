@@ -13,17 +13,28 @@
 <body>
 
   <!-- NAVBAR -->
-  <header class="navbar">
-    <nav aria-label="Main navigation">
-      <a href="#services">Services</a>
-      <a href="#projects">Projects</a>
-      <a href="#about">About</a>
-      <a href="#contact">Contact</a>
-    </nav>
-  </header>
+<header class="navbar" id="navbar">
+  <div class="hamburger" onclick="toggleMenu()" aria-label="Open menu">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+  <nav class="desktop-nav" aria-label="Main navigation">
+    <a href="#services">Services</a>
+    <a href="#projects">Projects</a>
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
+  </nav>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#services" onclick="closeMenu()">Services</a>
+    <a href="#projects" onclick="closeMenu()">Projects</a>
+    <a href="#about" onclick="closeMenu()">About</a>
+    <a href="#contact" onclick="closeMenu()">Contact</a>
+  </div>
+</header>
 
   <!-- HERO -->
-  <section class="hero section">
+  <section class="hero section" id="hero">
     <h1>Designed to Impress.<br>Built to Last.</h1>
     <p>Each website is custom-crafted with visual clarity, speed, and elegance.</p>
   </section>
@@ -103,6 +114,7 @@
     </div>
   </footer>
 
+  <!-- SCRIPT -->
   <script src="script.js"></script>
 </body>
 </html>
