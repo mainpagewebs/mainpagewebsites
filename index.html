@@ -2,184 +2,106 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Main Page Websites</title>
-
-  <!-- SEO Meta -->
-  <meta name="description" content="Main Page Websites helps you build beautiful, responsive websites fast. Designed for creators, entrepreneurs, and small businesses." />
-  <meta name="keywords" content="Main Page Websites, website builder, website creator, create a website, web design, small business websites, custom websites, ecommerce websites, responsive websites, drag and drop builder, portfolio websites, startup websites" />
-  <link rel="canonical" href="https://mainpagewebs.com/" />
-  <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml" />
-
-  <!-- Open Graph -->
-  <meta property="og:title" content="Main Page Websites" />
-  <meta property="og:description" content="Build beautiful, responsive websites with Main Page Websites – perfect for creators, businesses, and entrepreneurs." />
-  <meta property="og:image" content="https://mainpagewebs.com/Logo.png" />
-  <meta property="og:url" content="https://mainpagewebs.com/" />
-  <meta property="og:type" content="website" />
-
-  <!-- Twitter Card -->
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Main Page Websites" />
-  <meta name="twitter:description" content="Fast and easy website builder for creators and small businesses." />
-  <meta name="twitter:image" content="https://mainpagewebs.com/Logo.png" />
-
-  <!-- Schema Markup -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "WebSite",
-    "name": "Main Page Websites",
-    "url": "https://mainpagewebs.com",
-    "description": "Main Page Websites is a drag-and-drop website builder for fast, beautiful site creation.",
-    "publisher": {
-      "@type": "Organization",
-      "name": "Main Page Websites"
-    }
-  }
-  </script>
-
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    "name": "Main Page Websites",
-    "url": "https://mainpagewebs.com",
-    "logo": "https://mainpagewebs.com/Logo.png",
-    "sameAs": [
-      "https://instagram.com/mainpgwebs"
-    ],
-    "contactPoint": {
-      "@type": "ContactPoint",
-      "email": "mainpagewebs@gmail.com",
-      "contactType": "customer service"
-    }
-  }
-  </script>
-
-  <link rel="icon" type="image/png" href="Logo.png" />
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="icon" href="images/Logo.png" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Inter:wght@400;500&display=swap" rel="stylesheet">
 </head>
-
 <body>
-  <div id="preloader">
-  <img src="Logo.png" alt="Main Page Websites Logo" class="preloader-logo" />
-</div>
 
-  <div class="portfolio-container">
+  <!-- NAVBAR -->
+  <header class="navbar">
+    <nav>
+      <a href="#services">Services</a>
+      <a href="#projects">Projects</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
 
-    <!-- Header -->
-    <header class="profile">
-      <img src="Logo.png" alt="Main Page Websites Logo" class="profile-logo" />
-      <h1>Main Page Websites</h1>
-      <p class="tagline">Professional websites for creators, entrepreneurs, and small businesses.</p>
-    </header>
+  <!-- HERO -->
+  <section class="hero section">
+    <h1>Designed to Impress.<br>Built to Last.</h1>
+    <p>Each website is custom-crafted with visual clarity, speed, and elegance.</p>
+  </section>
 
-    <!-- Carousel -->
-    <section class="carousel-3d">
-      <div class="carousel-cards" id="carouselCards">
+  <div class="divider"></div>
 
-        <div class="project-card">
-          <img src="Bella Image.png" alt="Bella Dental Website" class="project-img" loading="lazy" />
-          <h2>Project Dentistry</h2>
-          <a href="https://bellasgiftforahealthysmile.com/" class="btn" target="_blank">Preview</a>
-          <div class="carousel-3d-buttons under-card">
-            <button onclick="rotateCarousel(-1)">‹</button>
-            <button onclick="rotateCarousel(1)">›</button>
-          </div>
+  <!-- SERVICES -->
+  <section id="services" class="section">
+    <h2>What We Offer</h2>
+    <div class="services-grid">
+      <div class="service-card">
+        <h3>Modern Design</h3>
+        <p>Clean layouts, subtle typography, and thoughtful flow built for conversion.</p>
+      </div>
+      <div class="service-card">
+        <h3>Responsive Development</h3>
+        <p>Optimized to look perfect on mobile, tablet, and desktop — fast everywhere.</p>
+      </div>
+      <div class="service-card">
+        <h3>Brand Customization</h3>
+        <p>We build your website around your identity, not the other way around.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- PROJECTS -->
+  <section id="projects" class="section">
+    <h2>Featured Projects</h2>
+    <p class="section-subtitle">Sites that speak volumes. Spin through some recent work.</p>
+    <div class="carousel-mask">
+      <div class="carousel-track">
+        <!-- Repeat these for infinite loop -->
+        <div class="project-tile">
+          <img src="Bella Image.png" alt="Project Dentistry" />
+          <h3>Project Dentistry</h3>
+          <a href="https://bellasgiftforahealthysmile.com/" target="_blank" class="project-btn">Visit Site</a>
         </div>
-
-        <div class="project-card">
-          <img src="Copaciu Image.png" alt="Copaciu Project" class="project-img" loading="lazy" />
-          <h2>Project Traditional Cuisine</h2>
-          <a href="https://www.bucatarialuiadriancopaciu.com/" class="btn" target="_blank">Preview</a>
-          <div class="carousel-3d-buttons under-card">
-            <button onclick="rotateCarousel(-1)">‹</button>
-            <button onclick="rotateCarousel(1)">›</button>
-          </div>
+        <div class="project-tile">
+          <img src="Biserica Image.png" alt="Project Biserica" />
+          <h3>Project Biserica</h3>
+          <a href="https://bisericaortodoxahouston.com/" target="_blank" class="project-btn">Visit Site</a>
         </div>
-
-        <div class="project-card">
-          <img src="Biserica Image.png" alt="Biserica Project" class="project-img" loading="lazy" />
-          <h2>Project Biserica</h2>
-          <a href="https://bisericaortodoxahouston.com/" class="btn" target="_blank">Preview</a>
-          <div class="carousel-3d-buttons under-card">
-            <button onclick="rotateCarousel(-1)">‹</button>
-            <button onclick="rotateCarousel(1)">›</button>
-          </div>
+        <div class="project-tile">
+          <img src="Copaciu Image.png" alt="Project Traditional Cuisine" />
+          <h3>Project Traditional Cuisine</h3>
+          <a href="https://www.bucatarialuiadriancopaciu.com/" target="_blank" class="project-btn">Visit Site</a>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- Parallax Highlight Sections -->
-    <section class="section-highlight">
-      <h2>⚡ Fast & Optimized</h2>
-      <p>We build websites that load quickly, pass Core Web Vitals, and rank higher in search engines.</p>
-    </section>
+  <div class="divider"></div>
 
-    <section class="section-highlight alt">
-      <h2>📱 Mobile Ready</h2>
-      <p>Your website will look stunning and function perfectly across all devices.</p>
-    </section>
+  <!-- ABOUT -->
+  <section id="about" class="section">
+    <h2>About Main Page Websites</h2>
+    <p>We’re a digital studio focused on high-end web design. We blend aesthetics and performance into immersive experiences that reflect your brand’s essence.</p>
+  </section>
 
-    <section class="section-highlight">
-      <h2>🎨 Custom Designs</h2>
-      <p>No templates here. Every website is crafted to fit your unique brand and goals.</p>
-    </section>
+  <div class="divider"></div>
 
-    <!-- Contact -->
-    <section class="contact">
-      <h2>Contact Us</h2>
-      <p><strong>Email:</strong> <a href="mailto:mainpagewebs@gmail.com">mainpagewebs@gmail.com</a></p>
-      <p><strong>Instagram:</strong> <a href="https://instagram.com/mainpgwebs" target="_blank">@mainpgwebs</a></p>
-    </section>
+  <!-- CONTACT -->
+  <section id="contact" class="section">
+    <h2>Let’s Work Together</h2>
+    <div class="contact-card">
+      <p>Reach out via <strong>email</strong> or message us on <strong>Instagram</strong> — we respond fast.</p>
+      <a href="mailto:mainpagewebsites@gmail.com" class="cta-btn">Email: mainpagewebsites@gmail.com</a>
+      <p class="insta-cta">Instagram: <a href="https://www.instagram.com/mainpgwebs/" target="_blank" class="insta-link">@mainpgwebs</a></p>
+    </div>
+  </section>
 
-    <footer>
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-content">
       <p>© 2025 Main Page Websites</p>
-    </footer>
-  </div>
+    </div>
+  </footer>
 
-  <!-- Carousel Script -->
-  <script>
-    const cards = document.querySelectorAll(".carousel-cards .project-card");
-    let currentIndex = 0;
-
-    function updateCarousel() {
-      cards.forEach((card, i) => {
-        card.classList.remove("left", "right", "active");
-        if (i === currentIndex) card.classList.add("active");
-        else if (i === (currentIndex - 1 + cards.length) % cards.length) card.classList.add("left");
-        else if (i === (currentIndex + 1) % cards.length) card.classList.add("right");
-      });
-    }
-
-    function rotateCarousel(direction) {
-      currentIndex = (currentIndex + direction + cards.length) % cards.length;
-      updateCarousel();
-    }
-
-    let autoRotate = setInterval(() => rotateCarousel(1), 5000);
-    const carouselTrack = document.querySelector(".carousel-cards");
-
-    carouselTrack.addEventListener("mouseenter", () => clearInterval(autoRotate));
-    carouselTrack.addEventListener("mouseleave", () => {
-      autoRotate = setInterval(() => rotateCarousel(1), 5000);
-    });
-
-    updateCarousel();
-
-    let startX = 0;
-    carouselTrack.addEventListener("touchstart", (e) => startX = e.touches[0].clientX);
-    carouselTrack.addEventListener("touchend", (e) => {
-      let diff = e.changedTouches[0].clientX - startX;
-      if (Math.abs(diff) > 50) rotateCarousel(diff < 0 ? 1 : -1);
-    });
-  </script>
-
-  <!-- Animations -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-  <script src="animations.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
