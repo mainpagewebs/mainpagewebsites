@@ -1,0 +1,225 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: 'Poppins', sans-serif;
+  background: radial-gradient(circle at center, #0b0b0c, #060606);
+  color: #e6fafa;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+canvas#bubbles {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+
+/* Hamburger (removed on mobile) */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  position: fixed;
+  top: 1.6rem;
+  right: 1.5rem;
+  cursor: pointer;
+  z-index: 1001;
+}
+.hamburger span {
+  width: 25px;
+  height: 3px;
+  background: #00fff0;
+  transition: all 0.3s ease;
+}
+.hamburger.open span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+.hamburger.open span:nth-child(2) {
+  opacity: 0;
+}
+.hamburger.open span:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
+}
+
+/* Nav */
+header {
+  position: fixed;
+  top: 2rem;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  z-index: 999;
+}
+.nav-float {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  padding: 1rem 2.5rem;
+  background: rgba(20, 20, 20, 0.8);
+  border-radius: 50px;
+  backdrop-filter: blur(12px);
+  box-shadow: 0 10px 25px rgba(0,255,240,0.07);
+  width: auto;
+  max-width: 100%;
+}
+.nav-links {
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+}
+.nav-links li a {
+  text-decoration: none;
+  color: #00fff0;
+  font-weight: 600;
+  position: relative;
+}
+.nav-links li a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  height: 2px;
+  width: 0;
+  background: #00fff0;
+  transition: width 0.3s;
+}
+.nav-links li a:hover::after {
+  width: 100%;
+}
+
+/* Completely remove nav on mobile */
+@media (max-width: 768px) {
+  .nav-float,
+  .hamburger {
+    display: none !important;
+  }
+}
+
+/* Desktop only */
+@media (min-width: 769px) {
+  .hamburger {
+    display: none !important;
+  }
+
+  .nav-float {
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
+    width: auto;
+  }
+}
+
+/* Hero */
+.hero {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.glow-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 3.8rem;
+  color: #e6ffff;
+  text-shadow: 0 0 10px #00fff0, 0 0 30px rgba(0, 255, 240, 0.3);
+}
+.subtitle {
+  font-size: 1.2rem;
+  color: #aefcff;
+  margin-top: 0.7rem;
+}
+#arrow {
+  font-size: 2rem;
+  margin-top: 2rem;
+  animation: bounce 2s infinite;
+  opacity: 0.6;
+}
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(10px); }
+}
+
+/* Sections */
+section {
+  padding: 6rem 2rem;
+  text-align: center;
+}
+h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.4rem;
+  margin-bottom: 2.2rem;
+}
+.card-grid {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+.card {
+  background: #101010;
+  border-radius: 14px;
+  padding: 2rem;
+  width: 270px;
+  box-shadow: 0 10px 25px rgba(0,255,240,0.05),
+              inset 0 1px 3px rgba(255,255,255,0.04);
+  transition: transform 0.4s ease;
+}
+.card:hover {
+  transform: translateY(-8px) rotateX(2deg) rotateY(-2deg);
+}
+.card h3 {
+  color: #d0ffff;
+  margin-bottom: 0.8rem;
+}
+.card p {
+  color: #c5fafa;
+  font-size: 0.95rem;
+}
+
+/* Divider line */
+.divider-wrap {
+  display: flex;
+  justify-content: center;
+  padding: 2rem 0;
+}
+.divider-line {
+  width: 70%;
+  height: 2px;
+  border-radius: 1px;
+  background: linear-gradient(to right, transparent, #00fff0, transparent);
+  transform: scaleX(0);
+  opacity: 0;
+  transition: transform 1s ease, opacity 1s ease;
+}
+.divider-line.active {
+  transform: scaleX(1);
+  opacity: 1;
+}
+
+/* Reveal animations */
+.reveal {
+  opacity: 0;
+  transition: all 1s ease;
+}
+.reveal.visible {
+  opacity: 1;
+}
+.fade-up { transform: translateY(60px); }
+.fade-up.visible { transform: translateY(0); }
+.slide-left { transform: translateX(60px); }
+.slide-left.visible { transform: translateX(0); }
+.zoom-in { transform: scale(0.85); }
+.zoom-in.visible { transform: scale(1); }
+
+/* Footer */
+footer {
+  padding: 3rem;
+  text-align: center;
+  color: #a2fafa;
+  font-size: 0.9rem;
+}

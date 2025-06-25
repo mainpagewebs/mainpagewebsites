@@ -1,51 +1,94 @@
-// Scroll-based animation observer
-const options = {
-  threshold: 0.3
-};
+// Reset scroll to top on hash reload
+if (location.hash) {
+  history.replaceState(null, '', location.pathname + location.search);
+  scrollTo(0, 0);
+}
 
+// Reveal on scroll
 const observer = new IntersectionObserver((entries) => {
-  entries.forEach((entry) => {
+  entries.forEach(entry => {
     if (entry.isIntersecting) {
-      entry.target.classList.add("visible");
+      entry.target.classList.add('visible');
+      const divider = entry.target.previousElementSibling?.querySelector('.divider-line');
+      if (divider) divider.classList.add('active');
     } else {
-      entry.target.classList.remove("visible");
+      entry.target.classList.remove('visible');
+      const divider = entry.target.previousElementSibling?.querySelector('.divider-line');
+      if (divider) divider.classList.remove('active');
     }
   });
-}, options);
+}, { threshold: 0.25 });
 
-document.querySelectorAll('.section, .divider').forEach((el) => {
-  observer.observe(el);
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+// Mobile hamburger toggle
+const hamburger = document.getElementById('hamburger');
+const navLinks = document.getElementById('navLinks');
+
+hamburger.addEventListener('click', () => {
+  hamburger.classList.toggle('open');
+  navLinks.classList.toggle('open');
 });
 
-// Scroll-to-top on load if URL has hash
-window.addEventListener("load", () => {
-  if (window.location.hash) {
-    history.replaceState(null, null, window.location.pathname);
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  }
+// Smooth scroll to section (centered on desktop, top on mobile)
+document.querySelectorAll('#navLinks a').forEach(link => {
+  link.addEventListener('click', e => {
+    e.preventDefault();
+
+    const targetId = link.getAttribute('href');
+    const target = document.querySelector(targetId);
+    if (!target) return;
+
+    const isDesktop = window.innerWidth >= 769;
+    const destY = isDesktop
+      ? target.offsetTop - (window.innerHeight / 2 - target.offsetHeight / 2)
+      : target.offsetTop;
+
+    window.scrollTo({ top: destY, behavior: 'smooth' });
+
+    // Close menu on mobile
+    hamburger.classList.remove('open');
+    navLinks.classList.remove('open');
+  });
 });
 
-// Shrink navbar on scroll down, expand on scroll up
-let lastScrollTop = 0;
-const navbar = document.getElementById("navbar");
+// Background bubbles
+const canvas = document.getElementById("bubbles");
+const ctx = canvas.getContext("2d");
+let bubbles = [];
 
-window.addEventListener("scroll", () => {
-  const currentScroll = window.scrollY;
-  if (currentScroll > lastScrollTop) {
-    navbar.classList.add("shrink");
-  } else {
-    navbar.classList.remove("shrink");
-  }
-  lastScrollTop = currentScroll;
-});
-
-// Toggle and close mobile menu
-function toggleMenu() {
-  document.querySelector('.hamburger').classList.toggle('active');
-  document.getElementById('mobileMenu').classList.toggle('active');
+function resizeCanvas() {
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
 }
-
-function closeMenu() {
-  document.querySelector('.hamburger').classList.remove('active');
-  document.getElementById('mobileMenu').classList.remove('active');
+function createBubbles() {
+  bubbles = [];
+  for (let i = 0; i < 50; i++) {
+    bubbles.push({
+      x: Math.random() * canvas.width,
+      y: Math.random() * canvas.height,
+      r: 6 + Math.random() * 14,
+      speed: 0.2 + Math.random() * 0.4,
+      opacity: 0.08 + Math.random() * 0.1
+    });
+  }
 }
+function animate() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  bubbles.forEach(b => {
+    ctx.beginPath();
+    ctx.arc(b.x, b.y, b.r, 0, Math.PI * 2);
+    ctx.fillStyle = `rgba(255,255,255,${b.opacity})`;
+    ctx.fill();
+    b.y -= b.speed;
+    if (b.y + b.r < 0) b.y = canvas.height + b.r;
+  });
+  requestAnimationFrame(animate);
+}
+resizeCanvas();
+createBubbles();
+animate();
+window.addEventListener("resize", () => {
+  resizeCanvas();
+  createBubbles();
+});
