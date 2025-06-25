@@ -10,11 +10,16 @@ body {
   overflow-x: hidden;
   scroll-behavior: smooth;
 }
-canvas#bubbles {
+.animated-bg {
   position: fixed;
   top: 0;
   left: 0;
-  z-index: -1;
+  width: 100vw;
+  height: 100vh;
+  background: url('Background.gif') center center / cover no-repeat;
+  z-index: -3;
+  pointer-events: none;
+  opacity: 0.15; /* Adjust intensity of the effect */
 }
 
 /* Hamburger (removed on mobile) */
@@ -114,14 +119,38 @@ header {
   }
 }
 
-/* Hero */
+/* Hero Section */
 .hero {
   height: 100vh;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: center;
   align-items: center;
+  gap: 60px;
+  flex-wrap: wrap;
+  padding: 80px 20px;
+  text-align: center;
+  position: relative;
 }
+
+.hero-content {
+  max-width: 600px;
+  z-index: 2;
+}
+
+.hero-logo {
+  width: 300px;
+  height: 300px;
+  animation: float 4s ease-in-out infinite;
+  z-index: 1;
+}
+
+.hero-logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
 .glow-title {
   font-family: 'Playfair Display', serif;
   font-size: 3.8rem;
@@ -142,6 +171,17 @@ header {
 @keyframes bounce {
   0%, 100% { transform: translateY(0); }
   50% { transform: translateY(10px); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+}
+
+@media screen and (max-width: 768px) {
+  .hero-logo {
+    display: none;
+  }
 }
 
 /* Sections */
